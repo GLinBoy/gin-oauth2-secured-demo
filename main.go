@@ -1,7 +1,21 @@
 package main
 
-import "fmt"
+import (
+	"net/http"
+
+	"github.com/glinboy/gin-oauth2-secured-demo/router"
+)
 
 func main() {
-	fmt.Println("Hello, Go!")
+	routes := router.NewRouter()
+
+	server := &http.Server{
+		Addr:    ":8080",
+		Handler: routes,
+	}
+
+	err := server.ListenAndServe()
+	if err != nil {
+		panic(err)
+	}
 }
