@@ -13,6 +13,7 @@ func NewRouter() *gin.Engine {
 	bookRoutes := apiRoutes.Group("/books")
 	bookRoutes.GET("", controller.FindBooks)
 	bookRoutes.POST("", controller.CreateBook)
+	bookRoutes.GET("/:id", controller.FindBook)
 
 	return routes
 }
