@@ -41,3 +41,21 @@ func FindBook(ctx *gin.Context) {
 
 	ctx.JSON(http.StatusOK, gin.H{"data": book})
 }
+
+func UpdateBook(ctx *gin.Context) {
+	var book model.Book
+	if err := db.Where("id = ?", ctx.Param("id")).First(&book).Error; err != nil {
+		ctx.JSON(http.StatusBadRequest, gin.H{"error": "Record not found"})
+		return
+	}
+
+	var bookDTO dto.BookDTO
+	if err := ctx.ShouldBindJSON(&bookDTO); err != nil {
+		ctx.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		return
+	}
+
+	db.Model(&book).Updates(bookDTO)
+
+	ctx.JSON(http.StatusOK, gin.H{"data": book})
+}
