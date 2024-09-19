@@ -14,6 +14,7 @@ func NewRouter() *gin.Engine {
 	bookRoutes.GET("", controller.FindBooks)
 	bookRoutes.POST("", controller.CreateBook)
 	bookRoutes.GET("/:id", controller.FindBook)
+	bookRoutes.PATCH("/:id", controller.UpdateBook)
 
 	return routes
 }
