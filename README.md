@@ -26,3 +26,14 @@
   ```bash
   curl --location 'localhost:8080/api/books/1'
   ```
+
+- Update a Book
+
+  ```bash
+  curl --location --request PATCH 'localhost:8080/api/books/1' \
+  --header 'Content-Type: application/json' \
+  --data '{
+  "title": "Updated Book Title",
+  "author": "John Doe"
+  }'
+  ```
