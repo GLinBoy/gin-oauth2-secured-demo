@@ -9,3 +9,14 @@
   ```bash
   curl --location 'localhost:8080/api/books'
   ```
+
+- Create a Book
+
+  ```bash
+  curl --location 'localhost:8080/api/books' \
+  --header 'Content-Type: application/json' \
+  --data '{
+  "title": "Sample Book Title",
+  "author": "John Doe"
+  }'
+  ```
