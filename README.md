@@ -37,3 +37,9 @@
   "author": "John Doe"
   }'
   ```
+
+- Delete a Book
+
+  ```bash
+  curl --location --request DELETE 'localhost:8080/api/books/1'
+  ```
