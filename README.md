@@ -20,3 +20,9 @@
   "author": "John Doe"
   }'
   ```
+
+- Get a Book by ID
+
+  ```bash
+  curl --location 'localhost:8080/api/books/1'
+  ```
